@@ -29,12 +29,12 @@ public class MachineController : MonoBehaviour
 
     public void MoveMachine(Vector3 move)
     {
-        machineTransform.Translate(move);
+        machineTransform.Translate(move.normalized * speedMove * Time.deltaTime);
     }
 
     private Vector3 GetMoveInput()
     {
-        return transform.forward * Input.GetAxis("Vertical") * speedMove * Time.deltaTime;
+        return transform.forward * Input.GetAxis("Vertical");
     }
 
     private Vector3 GetAngleInput()
